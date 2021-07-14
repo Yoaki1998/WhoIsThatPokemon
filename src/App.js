@@ -1,6 +1,7 @@
 import './App.css';
-
-
+import Button from './Components/Button';
+import GameScreen from './Components/GameScreen';
+import Score from './Components/Score';
 import React, { Component } from 'react'
 
 class App extends Component {
@@ -8,14 +9,14 @@ class App extends Component {
   state = {
     pokeChoice: [],
     winner: {},
-    winnerInfo: {}
+    winnerInfo: {},
+    score:0
   }
 
   getWinnerInfo = (winner) => {
     fetch(winner.url)
       .then(response => response.json())
       .then((data) => { 
-        console.log(data)
         const winnerInfo = {
           nom: data.forms[0].name,
           sprite: data.sprites.front_default,
@@ -23,7 +24,7 @@ class App extends Component {
           taille: data.height/10.0,
           poid: data.weight/10.0,
         }
-        console.log(winnerInfo)
+        this.setState({winnerInfo})
       })
   }
 
@@ -46,17 +47,18 @@ class App extends Component {
 
   }
 
-
-
-
   componentDidMount () {
     this.pokeapi()
+   
   }
 
   render () {
+    console.log()
     return (
       <div>
-        
+        <Score></Score>
+        <GameScreen></GameScreen>
+        {this.state.pokeChoice.map(obj => <Button key = {obj.name} name ={obj.name} ></Button>)}
       </div>
     )
   }
