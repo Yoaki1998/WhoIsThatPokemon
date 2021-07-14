@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/WhoIsThatPokemon/static/css/main.f0bec726.chunk.css",
+    "main.js": "/WhoIsThatPokemon/static/js/main.5ce23caf.chunk.js",
+    "main.js.map": "/WhoIsThatPokemon/static/js/main.5ce23caf.chunk.js.map",
+    "runtime-main.js": "/WhoIsThatPokemon/static/js/runtime-main.df5a3b6e.js",
+    "runtime-main.js.map": "/WhoIsThatPokemon/static/js/runtime-main.df5a3b6e.js.map",
+    "static/js/2.af82244c.chunk.js": "/WhoIsThatPokemon/static/js/2.af82244c.chunk.js",
+    "static/js/2.af82244c.chunk.js.map": "/WhoIsThatPokemon/static/js/2.af82244c.chunk.js.map",
+    "static/js/3.45105527.chunk.js": "/WhoIsThatPokemon/static/js/3.45105527.chunk.js",
+    "static/js/3.45105527.chunk.js.map": "/WhoIsThatPokemon/static/js/3.45105527.chunk.js.map",
+    "index.html": "/WhoIsThatPokemon/index.html",
+    "static/css/main.f0bec726.chunk.css.map": "/WhoIsThatPokemon/static/css/main.f0bec726.chunk.css.map",
+    "static/js/2.af82244c.chunk.js.LICENSE.txt": "/WhoIsThatPokemon/static/js/2.af82244c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.df5a3b6e.js",
+    "static/js/2.af82244c.chunk.js",
+    "static/css/main.f0bec726.chunk.css",
+    "static/js/main.5ce23caf.chunk.js"
+  ]
+}
