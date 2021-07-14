@@ -86,7 +86,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <div className = "navbar">
-          <h1>WHO IS THAT POKEMON ?</h1>
+          <h1 className="main">WHO IS THAT POKEMON ?</h1>
+          <h1 className ="sec">WITP?</h1>
         </div>
         <div className = "container">
           <Score
