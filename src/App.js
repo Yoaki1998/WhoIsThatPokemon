@@ -20,10 +20,11 @@ class App extends Component {
         const winnerInfo = {
           nom: data.forms[0].name,
           sprite: data.sprites.front_default,
-          types: data.types,
+          type: data.types[0].type.name,
           taille: data.height/10.0,
           poid: data.weight/10.0,
         }
+        if (data.types[1]) winnerInfo['typetwo'] = data.types[1].type.name
         this.setState({winnerInfo})
       })
   }
@@ -52,12 +53,13 @@ class App extends Component {
    
   }
 
-  render () {
-    console.log()
+  render () {   
     return (
       <div>
         <Score></Score>
-        <GameScreen></GameScreen>
+        <GameScreen
+        winnerInfo = {this.state.winnerInfo}>
+        </GameScreen>
         {this.state.pokeChoice.map(obj => <Button key = {obj.name} name ={obj.name} ></Button>)}
       </div>
     )
