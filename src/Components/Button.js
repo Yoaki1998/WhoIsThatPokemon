@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = ({name}) => {
+const Button = ({name, winOrLose}) => {
     return (
-        <button> {name} </button>
+        <button onClick={() => winOrLose(name)}> {name} </button>
     )
 }
 

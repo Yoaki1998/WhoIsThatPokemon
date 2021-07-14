@@ -52,6 +52,26 @@ class App extends Component {
 
   }
 
+  reavel = () => {
+
+  }
+
+  winOrLose = (name) => {
+    console.log(name)
+    console.log(this.state.winner.name)
+    if (this.state.winner.name === name) {
+      let score = this.state.score
+      score =+ 1
+      this.setState({score})
+      this.reavel()
+    } else {
+      let score = this.state.score
+      score =- 1
+      this.setState({score})
+      this.reavel()
+    }
+  }
+
   componentDidMount () {
     this.pokeapi()
    
@@ -60,12 +80,13 @@ class App extends Component {
   render () {   
     return (
       <div>
-        <Score></Score>
+        <Score
+        score = {this.state.score}></Score>
         <GameScreen
           winnerInfo = {this.state.winnerInfo}>
         </GameScreen>
         {/*Itere pour crée les boutons avec le choix des pokémons*/}
-        {this.state.pokeChoice.map(obj => <Button key = {obj.name} name ={obj.name} ></Button>)}
+        {this.state.pokeChoice.map(obj => <Button winOrLose = {this.winOrLose} key = {obj.name} name ={obj.name} ></Button>)}
       </div>
     )
   }

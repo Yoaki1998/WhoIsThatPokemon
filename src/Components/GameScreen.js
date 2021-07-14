@@ -6,13 +6,16 @@ const GameScreen = ({winnerInfo}) => {
     const type = () => {
        return winnerInfo.typetwo ? winnerInfo.type + ' et ' + winnerInfo.typetwo : winnerInfo.type 
     } 
+    const nom = winnerInfo.nom
 
     return (
         <div>
-            <h1> {winnerInfo.nom} </h1>
+            <h1> { nom } </h1>
+            <img src={winnerInfo.sprite} alt="" />
             <p> Taille : {winnerInfo.taille} m </p>
             <p> Poid : {winnerInfo.poid} kg </p>
-            <p> {type()} </p>
+            <p> Types : {type()} </p>
+
         </div>
     )
 }
