@@ -5,7 +5,7 @@ const GameScreen = ({winnerInfo}) => {
 
     /* Verifie si il y a 1 seul ou plusieur Type sur ce pokémon */
     const type = () => {
-       return winnerInfo.typetwo ? winnerInfo.type + ' et ' + winnerInfo.typetwo : winnerInfo.type 
+       return winnerInfo.typetwo ? winnerInfo.type + ' and ' + winnerInfo.typetwo : winnerInfo.type 
     } 
 
 
