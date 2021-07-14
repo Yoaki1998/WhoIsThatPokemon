@@ -96,6 +96,11 @@ h3{
 }
 
 @media screen and (max-width:404px) {
+
+    body {
+        background-color: #F7F7F7 ;
+    }
+
     .navbar .main{
         font-size: 0;
     }
@@ -127,5 +132,14 @@ h3{
         width: 99%;
         margin-left: 1px;
         margin-right: 0;
+        height: 40px;
+        font-size: 130%;
+        margin-top: 1px;
+    }
+    h3{
+        top: 13px;
+    }
+    .letrou {
+        height: 0%;
     }
 }
