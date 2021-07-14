@@ -1,4 +1,5 @@
 import React from 'react'
+import '../App.css'
 
 const GameScreen = ({winnerInfo}) => {
 
@@ -9,12 +10,11 @@ const GameScreen = ({winnerInfo}) => {
 
 
     return (
-        <div>
-            <h1>  </h1>
+        <div className = "Card">
             <img src={winnerInfo.sprite} alt="" />
-            <p> Taille : {winnerInfo.taille} m </p>
-            <p> Poid : {winnerInfo.poid} kg </p>
-            <p> Types : {type()} </p>
+            <p> HEIGHT : {winnerInfo.taille} M </p>
+            <p> WEIGHT : {winnerInfo.poid} KG </p>
+            <p> TYPE : {type()} </p>
 
         </div>
     )

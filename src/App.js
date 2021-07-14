@@ -41,10 +41,13 @@ class App extends Component {
       .then((data) => { 
         const pokeall = data.results
         const pokeChoice = []
-        for (let i = 0 ; i < 3; i++) {
+        for (let i = 0 ; i < 3;) {
           let rand = randomizeAll()
           /* Evite d'avoir deux fois le meme nom de pokémon */
-          if (pokeChoice.indexOf(rand) === -1) pokeChoice.push(pokeall[rand])
+          if (pokeChoice.indexOf(rand) === -1) {
+            i++
+            pokeChoice.push(pokeall[rand])
+          }
         }
         const winner = pokeChoice[randomize()]
         this.getWinnerInfo(winner)
@@ -81,15 +84,20 @@ class App extends Component {
 
   render () {   
     return (
-      <div>
-        <Score
-        score = {this.state.score}></Score>
-        <GameScreen
-          winnerInfo = {this.state.winnerInfo}>
-        </GameScreen>
-        {/*Itere pour crée les boutons avec le choix des pokémons*/}
-        {this.state.pokeChoice.map(obj => <Button winOrLose = {this.winOrLose} key = { obj.name + "-" + Date.now()} name ={obj.name} ></Button>)}
-      </div>
+      <React.Fragment>
+        <div className = "navbar">
+          <h1>WHO IS THAT POKEMON ?</h1>
+        </div>
+        <div className = "container">
+          <Score
+          score = {this.state.score}></Score>
+          <GameScreen
+            winnerInfo = {this.state.winnerInfo}>
+          </GameScreen>
+          {/*Itere pour crée les boutons avec le choix des pokémons*/}
+          {this.state.pokeChoice.map((obj, id) => <Button winOrLose = {this.winOrLose} key = { id } name ={obj.name} ></Button>)}
+        </div>
+      </React.Fragment>
     )
   }
 }
