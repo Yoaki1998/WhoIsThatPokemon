@@ -42,7 +42,9 @@ class App extends Component {
         const pokeall = data.results
         const pokeChoice = []
         for (let i = 0 ; i < 3; i++) {
-          pokeChoice.push(pokeall[randomizeAll()])
+          let rand = randomizeAll()
+          /* Evite d'avoir deux fois le meme nom de pokémon */
+          if (pokeChoice.indexOf(rand) === -1) pokeChoice.push(pokeall[rand])
         }
         const winner = pokeChoice[randomize()]
         this.getWinnerInfo(winner)
@@ -57,18 +59,18 @@ class App extends Component {
   }
 
   winOrLose = (name) => {
-    console.log(name)
-    console.log(this.state.winner.name)
     if (this.state.winner.name === name) {
       let score = this.state.score
-      score =+ 1
+      score += 1
       this.setState({score})
       this.reavel()
+      this.pokeapi()
     } else {
       let score = this.state.score
-      score =- 1
+      score -= 1
       this.setState({score})
       this.reavel()
+      this.pokeapi()
     }
   }
 
@@ -86,7 +88,7 @@ class App extends Component {
           winnerInfo = {this.state.winnerInfo}>
         </GameScreen>
         {/*Itere pour crée les boutons avec le choix des pokémons*/}
-        {this.state.pokeChoice.map(obj => <Button winOrLose = {this.winOrLose} key = {obj.name} name ={obj.name} ></Button>)}
+        {this.state.pokeChoice.map(obj => <Button winOrLose = {this.winOrLose} key = { obj.name + "-" + Date.now()} name ={obj.name} ></Button>)}
       </div>
     )
   }
