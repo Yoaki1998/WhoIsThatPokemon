@@ -6,7 +6,25 @@ import React, { Component } from 'react'
 class App extends Component {
 
   state = {
-    pokemons: []
+    pokeChoice: [],
+    winner: {},
+    winnerInfo: {}
+  }
+
+  getWinnerInfo = (winner) => {
+    fetch(winner.url)
+      .then(response => response.json())
+      .then((data) => { 
+        console.log(data)
+        const winnerInfo = {
+          nom: data.forms[0].name,
+          sprite: data.sprites.front_default,
+          types: data.types,
+          taille: data.height/10.0,
+          poid: data.weight/10.0,
+        }
+        console.log(winnerInfo)
+      })
   }
 
   pokeapi = () => {
@@ -21,10 +39,14 @@ class App extends Component {
           pokeChoice.push(pokeall[randomizeAll()])
         }
         const winner = pokeChoice[randomize()]
-        console.log(pokeChoice)
-        console.log(winner)
+        this.getWinnerInfo(winner)
+        this.setState({pokeChoice})
+        this.setState({winner})
       })
+
   }
+
+
 
 
   componentDidMount () {
