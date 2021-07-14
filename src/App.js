@@ -13,6 +13,7 @@ class App extends Component {
     score:0
   }
 
+  /*Récupère les information du pokémon gagnant et les sauvegarde dans le state*/ 
   getWinnerInfo = (winner) => {
     fetch(winner.url)
       .then(response => response.json())
@@ -24,11 +25,14 @@ class App extends Component {
           taille: data.height/10.0,
           poid: data.weight/10.0,
         }
+        /* Regle le bug du double type (Cannot find property type of Undefined) */
         if (data.types[1]) winnerInfo['typetwo'] = data.types[1].type.name
+        
         this.setState({winnerInfo})
       })
   }
 
+  /* Récupère les donnée de l'API et les sauvegarde dans le state*/
   pokeapi = () => {
     const randomizeAll = () => Math.floor(Math.random() * (150 - 0 + 1)) + 0
     const randomize = () => Math.floor(Math.random() * (2 - 0 + 1)) + 0    
@@ -58,8 +62,9 @@ class App extends Component {
       <div>
         <Score></Score>
         <GameScreen
-        winnerInfo = {this.state.winnerInfo}>
+          winnerInfo = {this.state.winnerInfo}>
         </GameScreen>
+        {/*Itere pour crée les boutons avec le choix des pokémons*/}
         {this.state.pokeChoice.map(obj => <Button key = {obj.name} name ={obj.name} ></Button>)}
       </div>
     )
